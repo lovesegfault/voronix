@@ -2,7 +2,7 @@ let
   pkgs = import ./nix;
 in
 pkgs.mkShell {
-  name = "voronator";
+  name = "voronix";
   buildInputs = with pkgs; [
     niv
     nixpkgs-fmt
