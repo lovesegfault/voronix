@@ -4,7 +4,11 @@
 , lib
 , pkgsCross
 , python2
+
 , configFile ? null
+
+, armSupport ? true
+, avrSupport ? true
 }: stdenv.mkDerivation rec {
   name = "klipper";
   version = "unstable";
@@ -16,11 +20,11 @@
     sha256 = "1wwggsrlzhjik2gglkkxg7a3fyvhzpmkzhd5g3szjk8gsww83kha";
   };
 
-  buildInputs = [ gcc-arm-embedded pkgsCross.avr.stdenv.cc python2 ];
+  buildInputs = [ python2 ]
+    ++ lib.optional armSupport gcc-arm-embedded
+    ++ lib.optional avrSupport pkgsCross.avr.stdenv.cc;
 
-  preBuild = lib.optionalString (configFile != null) ''
-    cp ${configFile} ./.config
-  '';
+  preBuild = lib.optionalString (configFile != null) "cp ${configFile} ./.config";
 
   installPhase = ''
     mkdir -p $out
