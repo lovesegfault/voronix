@@ -1,5 +1,5 @@
 { stdenv
-, fetchFromGitHub
+, klipper
 , gcc-arm-embedded
 , lib
 , pkgsCross
@@ -13,12 +13,7 @@
   name = "klipper";
   version = "unstable";
 
-  src = fetchFromGitHub {
-    owner = "KevinOConnor";
-    repo = "klipper";
-    rev = "0bf0cb5b547af5509cb73c567c0214e408134e1d";
-    sha256 = "07600pkcdm431djk5mr12gz52dql139vh1haympjqmi1xlfrinxy";
-  };
+  src = klipper.src;
 
   buildInputs = [ python2 ]
     ++ lib.optional armSupport gcc-arm-embedded

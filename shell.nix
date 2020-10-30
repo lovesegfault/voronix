@@ -1,5 +1,5 @@
 let
-  pkgs = import ./nix;
+  pkgs = import <nixpkgs> { };
 in
 pkgs.mkShell {
   name = "voronix";
