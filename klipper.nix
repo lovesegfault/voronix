@@ -16,8 +16,8 @@
   src = fetchFromGitHub {
     owner = "KevinOConnor";
     repo = "klipper";
-    rev = "4d0d219716afb1143119d7e919fa1e896a896f11";
-    sha256 = "02xv1a31ln3zkcx240c3qkfmglg1cnhdcanxv44ryvnd9fr854sj";
+    rev = "0bf0cb5b547af5509cb73c567c0214e408134e1d";
+    sha256 = "07600pkcdm431djk5mr12gz52dql139vh1haympjqmi1xlfrinxy";
   };
 
   buildInputs = [ python2 ]
